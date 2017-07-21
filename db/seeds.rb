@@ -15,7 +15,7 @@ class Seed
   end
 
   def generate_business
-    50.times do |i|
+    100.times do |i|
       author =
       business = Business.create!(
         name: Faker::Company.name,

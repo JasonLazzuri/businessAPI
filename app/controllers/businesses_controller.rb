@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
     render json: @businesses
   end
 
+
   # GET /businesses/1
   def show
     @business = Business.find(params[:id])
