@@ -8,11 +8,11 @@
 
 *Added Pagination to limit the amount of Business seen per page. “localhost:3000/businesses?page=number” number= the page you want to go to ie: 3 or 4.
 
-*Installation Setup
+* Installation Setup
 
-*git clone
-*bundle install
-*rails db:create
-*rails db:migrate
-*rails db:seed
-*rails s
+* git clone
+* bundle install
+* rails db:create
+* rails db:migrate
+* rails db:seed
+* rails s
