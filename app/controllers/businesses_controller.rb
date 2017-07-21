@@ -10,6 +10,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/1
   def show
+    @business = Business.find(params[:id])
     render json: @business
   end
 
@@ -26,7 +27,10 @@ class BusinessesController < ApplicationController
 
   # PATCH/PUT /businesses/1
   def update
-    if @business.update(business_params)
+    @business = Business.find(params[:id])
+    binding.pry
+    @business.update(business_params)
+    if @business.update!(business_params)
       render json: @business, json: {
      message: "Your Business has been updated successfully."
      }
@@ -39,7 +43,7 @@ class BusinessesController < ApplicationController
   def destroy
     @business.destroy
     render json: {
-     message: "Your quote has been updated successfully."
+     message: "Your Business has been DESTROYED!."
      }
   end
 
@@ -51,6 +55,6 @@ class BusinessesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def business_params
-      params.require(:business).permit(:name, :address, :phone)
+      params.permit(:name, :address, :phone)
     end
 end
