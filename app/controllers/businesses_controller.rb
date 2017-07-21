@@ -3,9 +3,14 @@ class BusinessesController < ApplicationController
 
   # GET /businesses
   def index
+    name = params[:name]
     @businesses = Business.all
-
-    render json: @businesses
+    @name = Business.search(name)
+    if @name
+      json_response(@name)
+    else
+      render json: @businesses
+    end
   end
 
 
