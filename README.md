@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*Generate a Random route by going to “localhost:3000/random”
 
-Things you may want to cover:
+*Added a Search route that will let you search by name of a business by going to “localhost:3000/businesses?name=insert” insert= name of business you want to search for.
 
-* Ruby version
+*Added rate limits to API so that it will only allow 3 calls per minute. *disabled because it was messing with my RSPEC’s
 
-* System dependencies
+*Added Pagination to limit the amount of Business seen per page. “localhost:3000/businesses?page=number” number= the page you want to go to ie: 3 or 4.
 
-* Configuration
+**Installation Setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*git clone
+*bundle install
+*rails db:create
+*rails db:migrate
+*rails db:seed
+*rails s
