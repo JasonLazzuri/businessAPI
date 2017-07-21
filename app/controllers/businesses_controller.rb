@@ -4,13 +4,13 @@ class BusinessesController < ApplicationController
   # GET /businesses
   def index
     name = params[:name]
-    @businesses = Business.all
+    @businesses = Business.paginate(:page => params[:page])
     @name = Business.search(name)
-    if @name
-      json_response(@name)
-    else
-      render json: @businesses
-    end
+      if @businesses
+        json_response(@businesses)
+      else @name
+        json_response(@name)
+      end
   end
 
 
@@ -57,6 +57,10 @@ class BusinessesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find(params[:id])
+    end
+
+    def json_response(object)
+      render json: object, status: :ok
     end
 
     # Only allow a trusted parameter "white list" through.

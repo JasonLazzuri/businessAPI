@@ -1,7 +1,6 @@
 require_relative 'boot'
 
 require "rails"
-require 'rack/throttle'
 
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -22,7 +21,6 @@ module BusinessDirectory
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.middleware.use Rack::Throttle::Interval
 
 
     # Settings in config/environments/* take precedence over those specified here.
